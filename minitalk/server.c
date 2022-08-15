@@ -6,7 +6,7 @@
 /*   By: atopalli <atopalli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:27:51 by atopalli          #+#    #+#             */
-/*   Updated: 2022/08/14 18:42:31 by atopalli         ###   ########.fr       */
+/*   Updated: 2022/08/14 20:20:53 by atopalli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	ftprintf(char *text, int pid);
 
 void	sig_handler(int signum)
 {
-	printf("hello world\n");
+	if (signum == 42)
+		printf("hello world\n");
 }
 
 int	main(void)
