@@ -6,7 +6,7 @@
 /*   By: atopalli <atopalli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:27:51 by atopalli          #+#    #+#             */
-/*   Updated: 2022/08/17 05:48:28 by atopalli         ###   ########.fr       */
+/*   Updated: 2022/08/17 05:56:33 by atopalli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	sig_handler(int signum)
 		ft_putchar(call);
 		call = 0;
 	}
+	if (signum == 42)
+		printf("hello world\n");
 }
 
 int	main(void)
