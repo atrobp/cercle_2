@@ -6,41 +6,52 @@
 /*   By: atopalli <atopalli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:27:51 by atopalli          #+#    #+#             */
-/*   Updated: 2022/08/14 20:20:53 by atopalli         ###   ########.fr       */
+/*   Updated: 2022/08/17 05:48:28 by atopalli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <signal.h>
+#include "minitalk.h"
 
 void	ftprintf(char *text, int pid);
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 void	sig_handler(int signum)
 {
-	if (signum == 42)
-		printf("hello world\n");
+	static int	call = 0;
+
+	if (signum == SIGUSR1)
+		sig_handler(signum);
+	else if (signum == SIGUSR2)
+	{
+		ft_putchar(call);
+		call = 0;
+	}
 }
 
 int	main(void)
 {
-	int	pid;
-
-	pid = getpid();
-	ftprintf("Process ID: ", pid);
-	signal(SIGUSR1, sig_handler);
-	while (1)
-		;
+	if (getpid())
+	{
+		ftprintf("Process ID: ", getpid());
+		signal(SIGUSR1, sig_handler);
+		signal(SIGUSR2, sig_handler);
+		while (1)
+			;
+	}
+	return (0);
 }
 
 void	ftprintf(char *text, int pid)
 {
 	static char	base[10] = "0123456789";
 	char		*str;
-	char		buf[10];
 
-	str = &buf[9];
-	*str = '\0';
+	str = (char *)malloc(10);
+	str[9] = '\0';
 	while (*text)
 		write(1, &*text++, 1);
 	while (pid)
@@ -49,6 +60,7 @@ void	ftprintf(char *text, int pid)
 		pid /= 10;
 	}
 	while (*str)
-		write(1, &*str++, 1);
+		ft_putchar(*str++);
+	free(str);
 	write(1, "\n", 2);
 }
