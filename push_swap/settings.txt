@@ -1,0 +1,82 @@
+
+{
+	"workbench.sideBar.location": "right",
+	"editor.minimap.enabled": false,
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"files.trimTrailingWhitespace": true,
+	"remote.SSH.useFlock": false,
+	"github.copilot.enable": {
+		"*": false,
+		"yaml": false,
+		"plaintext": false,
+		"markdown": false
+	},
+	"remote.SSH.remotePlatform": {
+		"arbers-Mac": "macOS",
+		"192.168.232.134": "macOS",
+		"192.168.232.129": "linux",
+		"localhost": "macOS",
+		"MacOS-Container": "macOS"
+	},
+	"window.commandCenter": true,
+	"workbench.colorTheme": "Gray Theme Italic",
+	"explorer.confirmDragAndDrop": false,
+	"files.autoSave": "onFocusChange",
+	"workbench.iconTheme": "material-icon-theme",
+	"codam-norminette-3.highlight-color": "rgba(221,112,221,0.2)",
+	"psi-header.changes-tracking": {
+		"autoHeader": "autoSave",
+		"isActive": true,
+		"exclude": ["json"]
+	},
+	"psi-header.lang-config": [
+		{
+			"language": "*",
+			"blankLinesAfter": 1,
+			"forceToTop": true,
+			"modDate": "Updated:",
+			"modDateFormat": "YYYY/MM/DD hh:mm:ss",
+			"begin": "/* ************************************************************************** */",
+			"prefix": "/* ",
+			"end": "/* ************************************************************************** */",
+			"suffix": " */",
+		},
+		{
+			"language": "Makefile",
+			"blankLinesAfter": 1,
+			"forceToTop": true,
+			"modDate": "Updated:",
+			"modDateFormat": "YYYY/MM/DD hh:mm:SS",
+			"begin": "# **************************************************************************** #",
+			"prefix": "# ",
+			"end": "# **************************************************************************** #",
+			"suffix": "#",
+		},
+	],
+	"psi-header.variables": [
+		["github____________________",                "github/atrobp         "],
+		["Name",                                       "atopalli"],
+		["blank2_______________________",              "                                   "],
+		["blank",                                      " "],
+		["blank_____________________________________", "                                      "],
+		["Creation________________",                   "<<filecreated('YYYY/MM/DD HH:nn:ss')>>"],
+		["Updated_________",                            "<<dateformat('YYYY/MM/DD HH:mm:ss')>>"],
+	],
+	"psi-header.templates": [
+		{
+			"language": "*",
+			"template": [
+				"  <<blank2_______________________>>\t\t\tif (success){};",
+				"",
+				"  <<filename>>",
+				"  <<blank_____________________________________>>\t\t\t██   ██ ██████    ",
+				"  By: @<<Name>> | <<github____________________>>\t\t\t██   ██      ██   ",
+				"  <<blank_____________________________________>>\t\t\t███████  █████    ",
+				"  Created: <<Creation________________>> by @<<Name>>\t\t\t ██ ██         ",
+				"  Updated: <<Updated_________>><<blank>>by @<<Name>>\t\t\t ██ ███████.qc ",
+				"",
+			],
+		},
+	],
+}
