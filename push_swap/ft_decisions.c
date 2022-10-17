@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                      			if (success){};           */
 /*                                                                            */
-/*   main.c                                                                   */
+/*   ft_decisions.c                                                           */
 /*                                         			██   ██ ██████            */
 /*   By: @atopalli | github/atrobp         			██   ██      ██           */
 /*                                         			███████  █████            */
 /*   Created: 2022/10/14 05:10:32 by @atopalli			 ██ ██                */
-/*   Updated: 2022/10/15 09:08:17 by @atopalli			 ██ ███████.qc        */
+/*   Updated: 2022/10/16 16:16:06 by @atopalli			 ██ ███████.qc        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	main(int ac, char **av)
+int	ft_swapif(int *a, int *b, char tochange)
 {
-	int	*tab;
-	int	i;
+	int	temp;
 
-	i = 0;
-	if (ac > 1)
+	if (*a < *b)
+		return (0);
+	if (tochange == 'y')
 	{
-		if (ac == 2)
-		{
-			ac = ft_strlen(av[1], ' ') + 1;
-			tab = malloc(sizeof(tab) * ft_strlen(av[1], ' '));
-			ft_split(av[1], tab);
-		}
-		else
-		{
-			tab = malloc(sizeof(tab) * ac);
-			while (++i < ac)
-				tab[i - 1] = (int)ft_atol(av[i], tab);
-		}
-		if (ft_isdouble(tab, ac) != 'y')
-			ft_decide(tab, ac);
-		free((tab));
+		temp = *a;
+		*a = *b;
+		*b = temp;
 	}
-	return (0);
+	return (1);
+}
+
+void	ft_decide(int *tab, int size)
+{
+	int	i;
+	int	isordered;
+
+	i = -1;
+	isordered = 0;
+	// ft_bubblesort(tab, size - 1, tab[ft_swapif(&tab[0], &tab[1], 0)]);
+	ft_myalgo(tab, size);
+	while (++i < size - 1)
+		printf("%d ", tab[i]);
 }

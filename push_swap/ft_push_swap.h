@@ -1,12 +1,12 @@
 /* ************************************************************************** */
+/*                                      			if (success){};           */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_push_swap.h                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: atopalli <atopalli@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 18:45:33 by atopalli          #+#    #+#             */
-/*   Updated: 2022/10/12 10:27:09 by atopalli         ###   ########.fr       */
+/*   ft_push_swap.h                                                           */
+/*                                         			██   ██ ██████            */
+/*   By: @atopalli | github/atrobp         			██   ██      ██           */
+/*                                         			███████  █████            */
+/*   Created: 2022/10/14 05:10:32 by @atopalli			 ██ ██                */
+/*   Updated: 2022/10/16 16:10:17 by @atopalli			 ██ ███████.qc        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,29 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 
-//parse stuff
-void	ft_split(char *str, long *tab);
+//algos struct
+typedef struct s_struct
+{
+	int	temp;
+	int	counter;
+}				t_struct;
+
+//parsing n others
 int		ft_strlen(char *str, char tofind);
-long	ft_atol(char *str);
+long	ft_atol(char *str, int *tab);
+void	ft_split(char *str, int *tab);
+int		ft_isdouble(int *tab, int size);
+
+//sorting algos
+void	ft_bubblesort(int *tab, int size, int tolookfor);
+void	ft_myalgo(int *tab, int size);
+// void	ft_insertion(int *tab);
+// void	ft_quicksort(int *tab, int size);
 
 //decision maker
-int		ft_swapif(long *a, long *b, char todo);
-void	isarraysorted(long *tab);
-
-//sorting algo mixted
-void	ft_bubblesort(long *tab, int size, int call);
+void	ft_decide(int *tab, int size);
+int		ft_swapif(int *a, int *b, char tochange);
 
 #endif
